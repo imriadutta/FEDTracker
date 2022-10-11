@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+/* styling for home page */
+
+.home-body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/img1.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.nav-links li,
+.nav-links li a,
+.header div a,
+.header div a button,
+.logo {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #EDF0F1;
+    text-decoration: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #24252A;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.logo:hover,
+.nav-links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.logo:hover,
+.nav-links li a:hover {
+    color: #0088A9;
+}
+
+.header div a button {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.header div a button:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+.description {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 450px;
+    margin: 0 auto 0px;
+    padding: 25px;
+    text-align: justify;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.alert-success {
+    color: green;
+}
+
+.alert-warning {
+    color: red;
+}
+
+/* styling for login page */
+
+.login-body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/img2.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.page {
+    width: 360px;
+    padding: 10% 0 0;
+    margin: auto;
+}
+
+.card,
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 50px;
+    padding: 25px;
+    text-align: center;
+}
+
+.des p,
+.des button,
+.des h2,
+.form input,
+.form select {
+    font-family: "Ubuntu", sans-serif;
+    outline: 1;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.des button,
+.form button {
+    font-family: "Ubuntu", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #0088A9;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.des button:hover,
+.des button:active,
+.form button:hover,
+.form button:active {
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+.form .register {
+    margin: 15px 0 0;
+    color: #24252A;
+    font-size: 12px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.form .register a {
+    color: #0088A9;
+    text-decoration: none;
+}
+
+.form .signup-form {
+    display: none;
+}
+
+/* styling for add item page */
+
+.additem-body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/img1.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* styling for items page */
+
+.items-body {
+    font-family: "Ubuntu", sans-serif;
+    background-color: #A8A8A8;
+}
+
+/* .container {
+    margin: 2%;
+}
+
+.card {
+    width: 20%;
+    display: inline-block;
+    box-shadow: 2px 2px 20px black;
+    border-radius: 5px;
+    margin: 2%;
+}
+
+.image img {
+    width: 100%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.title {
+    text-align: center;
+    padding: 10px;
+}
+
+.title h2 {
+    font-size: 20px;
+} */

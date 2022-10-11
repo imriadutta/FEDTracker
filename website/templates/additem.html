@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item | FEDTracker</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body class="additem-body">
+
+    <header class="header">
+        <a href="/" class="logo">FEDTracker</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="/items">Items</a></li>
+                <li><a href="/additem">Add Item</a></li>
+                {% endif %}
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+        <div>
+            {% if not user.is_authenticated %}
+            <a href="/login"><button>Log In</button></a>
+            {% else %}
+            <a href="/logout"><button>Log Out</button></a>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="page">
+
+        {% if messages %}
+        {% for message in messages %}
+        <div style="color: #0088A9;">
+            {{ message }}
+        </div>
+        {% endfor %}
+        <hr>
+        {% endif %}
+
+        <div class="form">
+            <form action="" method="post" class="additem-form">
+                {% csrf_token %}
+                <input type="text" name="itemname" placeholder="Item Name" required>
+                <input type="file" name="photo" placeholder="">
+                <input type="number" name="price" placeholder="Price" required>
+                <input type="number" name="quantity" placeholder="Quantity" required>
+                <input type="date" name="date" placeholder="Expiry Date" required>
+                <select name="options" required>
+                    <option selected>Choose...</option>
+                    <option value="grains">Grains</option>
+                    <option value="dairy">Dairy</option>
+                    <option value="beverages">Beverages</option>
+                    <option value="frozenveg">Frozen Vegetables</option>
+                    <option value="meat">Meat</option>
+                    <option value="fruits">Fruits</option>
+                    <option value="others">Others</option>
+                </select>
+                <input type="text" name="description" placeholder="Description">
+                <button type="submit" name="add">Add Item</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

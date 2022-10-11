@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items | FEDTracker</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body class="items-body">
+
+    <header class="header">
+        <a href="/" class="logo">FEDTracker</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="/items">Items</a></li>
+                <li><a href="/additem">Add Item</a></li>
+                {% endif %}
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+        <div>
+            {% if not user.is_authenticated %}
+            <a href="/login"><button>Log In</button></a>
+            {% else %}
+            <a href="/logout"><button>Log Out</button></a>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="container">
+        {% if messages %}
+        {% for message in messages %}
+        <div style="color: #0088A9; text-align: center; background: white;">
+            <br>
+            {{ message }}
+            <br>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        {% for item in all_items %}
+        <div class="card">
+            {% if item.image %}
+            <div class="image">
+                <img src="{{ item.image.url }}" alt="image">
+            </div>
+            {% endif %}
+            <div class="des">
+                <h2>{{ item.itemname }}</h2>
+                <p>{{ item.options }}</p>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>${{ item.price }}</p>
+                <p>{{ item.date }}</p>
+                <p>{{ item.days }} days left</p>
+                {% if item.description != '' %}
+                <p>{{ item.description }}</p>
+                {% endif %}
+                <a href="{% url 'notification' item.days %}"><button>Send Notification Mail</button></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

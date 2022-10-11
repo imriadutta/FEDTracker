@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | FEDTracker</title>
+    <!-- <link rel="stylesheet" href="static/css/styles.css"> -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body class="home-body">
+    <header class="header">
+        <a href="/" class="logo">FEDTracker</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="/items">Items</a></li>
+                <li><a href="/additem">Add Item</a></li>
+                {% endif %}
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+        <div>
+            {% if not user.is_authenticated %}
+            <a href="/login"><button>Log In</button></a>
+            {% else %}
+            <a href="/logout"><button>Log Out</button></a>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="description">
+        {% if messages %}
+        {% for message in messages %}
+        <div style="color: #0088A9;">
+            {{ message }}
+        </div>
+        {% endfor %}
+        <hr>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+        <div> Welcome {{ user.username }} </div>
+        <hr>
+        {% endif %}
+
+        <p>
+            Have you ever forgotten a yogurt or milk in the fridge?
+        </p>
+        <p>
+            Or did you stayed out of milk just because the milk went past the expiration date?
+            Do you want to have control of your fridge food?</p>
+        <p>
+            It’s time to manage your food efficiently with Best Before – <b>Food Expiry Date Tracker</b>. This
+            expiration datetracker & grocery list home inventory organizer tracks the whole lifecycle of your food
+            products in one website.
+        </p>
+    </div>
+</body>
+
+</html>
